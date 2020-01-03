@@ -7,10 +7,10 @@ export default class LaunchScreen extends Component {
   render() {
     return (
       <View style={styles.Container}>
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.Button}
           onPress={() => {
-            alert("Test");
+            
           }}
         >
           <Text style={styles.ButtonText}>
