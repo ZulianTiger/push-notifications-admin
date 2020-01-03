@@ -63,14 +63,14 @@ export default class LaunchScreen extends Component {
         .setData(Notification._data);
 
       const channel = new firebase.notifications.Android.Channel(
-        'channel7',
-        'Channel 7',
+        'channel8',
+        'Channel 8',
         firebase.notifications.Android.Importance.Max
       ).setDescription('The channel used to display notifications in foreground.');
       firebase.notifications().android.createChannel(channel);
 
       notification
-        .android.setChannelId('channel7')
+        .android.setChannelId('channel8')
         .android.setSmallIcon('ic_launcher')
         .android.setPriority(firebase.notifications.Android.Priority.High);
 
@@ -84,6 +84,7 @@ export default class LaunchScreen extends Component {
   componentWillUnmount() {
     this.unsubscribeFromNotificationListener();
   }
+
   render() {
     return (
       <View style={styles.Container}>
