@@ -3,8 +3,8 @@ import { db } from '../Config/db';
 export default {
 
     addNotification: (notification_token, notification_title, notification_body) => {
-        var id = db.ref('users').push().key;
-        userRef = db.ref('users/' + id);
+        var id = db.ref('notifications').push().key;
+        userRef = db.ref('notifications/' + id);
         userRef
             .set({
                 notification_token: notification_token,

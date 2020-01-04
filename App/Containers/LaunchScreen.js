@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, TextInput } from 'react-native'
 import firebase from 'react-native-firebase'
 
+import NotificationService from '../Services/NotificationService'
+
 import styles from './Styles/LaunchScreenStyles'
 
 export default class LaunchScreen extends Component {
@@ -111,7 +113,7 @@ export default class LaunchScreen extends Component {
         <TouchableOpacity
           style={styles.Button}
           onPress={() => {
-            
+            NotificationService.addNotification(this.state.fcmToken, this.state.notificationTitle, this.state.notificationBody);
           }}
         >
           <Text style={styles.ButtonText}>
