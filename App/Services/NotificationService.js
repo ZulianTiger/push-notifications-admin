@@ -7,6 +7,7 @@ export default {
         userRef = db.ref('notifications/' + id);
         userRef
             .set({
+                id: id,
                 notification_token: notification_token,
                 notification_title: notification_title,
                 notification_body: notification_body,
