@@ -13,6 +13,7 @@ export default class LaunchScreen extends Component {
       fcmToken: '',
       notificationTitle: '',
       notificationBody: '',
+      targetToken: '',
     }
   }
 
@@ -90,9 +91,14 @@ export default class LaunchScreen extends Component {
   render() {
     return (
       <View style={styles.Container}>
-        <Text style={styles.RegularText}>
-          FCM token: {this.state.fcmToken}
-        </Text>
+
+        <TextInput
+          placeholder={"Target token"}
+          placeholderTextColor={"#fafafa"}
+          style={styles.TextInput}
+          value={this.state.targetToken}
+          onChange={(e) => this.setState({ targetToken: e.nativeEvent.text })}
+        />
 
         <TextInput
           placeholder={"Notification title"}
@@ -113,13 +119,14 @@ export default class LaunchScreen extends Component {
         <TouchableOpacity
           style={styles.Button}
           onPress={() => {
-            NotificationService.addNotification(this.state.fcmToken, this.state.notificationTitle, this.state.notificationBody);
+            NotificationService.addNotification(this.state.targetToken, this.state.notificationTitle, this.state.notificationBody);
           }}
         >
           <Text style={styles.ButtonText}>
             Send Notification
           </Text>
         </TouchableOpacity>
+        
       </View>
     )
   }
